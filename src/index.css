@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-void text-white;
+    font-family: 'Inter', sans-serif;
+    background-image: radial-gradient(circle at 50% -10%, rgba(139, 107, 255, 0.14), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: theme('colors.violet.DEFAULT');
+    color: theme('colors.void');
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme('colors.void');
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.carbon.border');
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.violet.dim');
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.violet.glow');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-widest2 text-violet-glow;
+  }
+
+  .apex-card {
+    @apply bg-carbon border border-carbon-border rounded-xl;
+  }
+
+  .apex-grid-bg {
+    background-image: theme('backgroundImage.apex-grid');
+    background-size: theme('backgroundSize.grid');
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
